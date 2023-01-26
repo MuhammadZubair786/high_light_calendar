@@ -1,0 +1,93 @@
+/* This is a compiled file, you should be editing the file in the templates directory */
+
+.pace.pace-inactive {
+    display: none;
+}
+
+body {
+    background: #21293A;
+}
+
+body:before {
+    font-family: "PT Sans";
+    font-weight: 700;
+    content: "Calentim";
+    display: block;
+    position: fixed;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-size: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: move 1s infinite ease-in-out;
+    margin-top: 1em;
+}
+
+body:after {
+    font-family: "FontAwesome";
+    font-weight: 700;
+    content: "\f073";
+    display: block;
+    position: fixed;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-size: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: move 1s infinite ease-in-out;
+    margin-bottom: 1.5em;
+}
+
+@keyframes move {
+    0% {
+        transform: scale(0.8) rotate(3deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-3deg);
+    }
+    100% {
+        transform: scale(0.8) rotate(3deg);
+    }
+}
+
+body * {
+    visibility: hidden;
+}
+
+body.pace-done {
+    background: #fff;
+}
+
+body.pace-done * {
+    visibility: visible;
+}
+
+body.pace-done:before, body.pace-done:after {
+    display: none;
+}
+
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

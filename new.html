@@ -1,0 +1,207 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>
+    Calentim - Date Time Range Picker
+  </title>
+  <link href="includes/bootstrap.min.css" rel="stylesheet">
+  <link href="includes/prism.css" rel="stylesheet">
+  <link href="includes/toc.css" rel="stylesheet">
+  <link href="includes/pace.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|PT+Sans" rel="stylesheet">
+  <link href="../build/css/calentim.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <script>
+    window.paceOptions = {
+      ajax: false,
+      restartOnRequestAfter: false,
+    };
+  </script>
+  <script src="includes/scripts.min.js"></script>
+  <script>console.inject = function (library) {
+
+      function getURLs() {
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            if (xmlhttp.status == 200) {
+              var libraries = JSON.parse(xmlhttp.responseText).results;
+              var foundLib = libraries.reduce(function (found, item) {
+                if (item.name === library || item.name === library + '.js') {
+                  found = item;
+                }
+                return found;
+              }, undefined);
+
+              if (foundLib) {
+                var url = foundLib.latest.replace('http:', 'https:');
+                var libScript = document.createElement('script');
+                libScript.src = url;
+                document.head.appendChild(libScript);
+                return console.log('library injected from ' + url);
+              } else {
+                console.log('library "' + library + '" not found');
+              }
+            }
+            else { console.log(XMLHttpRequestlhttp.status) }
+          }
+        }
+
+        var searchString = 'https://api.cdnjs.com/libraries?search=' + library;
+        xmlhttp.open("GET", searchString, true);
+        xmlhttp.send();
+      }
+
+      getURLs();
+    }</script>
+</head>
+
+<body class="calentim-notouch  pace-done" style="">
+
+
+
+  <div class="all-container">
+
+
+
+
+
+
+
+
+    <div class="well well-sm" style="overflow: auto;">
+      <p></p>
+      <p>
+      <div class="calentim-container calentim-inline" onclick=""><input type="hidden" id="calentim-ex-6-6-3"
+          value="01/26/2023 3:36 PM - 01/26/2023 3:36 PM">
+        
+      </div>
+      </p>
+    </div>
+    <p></p>
+    <script
+      type="text/javascript">$("#calentim-ex-6-6-3").calentim({
+            showTimePickers: false, inline: true, rangeOrientation: "vertical", format: "DD-MM-YYYY",
+            onbeforeselect: function (instance, start, end) {
+              console.log(start.format('YYYY-MM-DD'));
+              // alert("ASDASd");
+            //   $.ajax({url: "demo_test.txt", success: function(result){
+            //     $("#div1").html(result);
+            //   }});
+              startDate = start.clone();
+              endDate = end.clone();
+
+              // endInstance.hideDropdown();
+              // startInstance.config.endDate = endDate.clone();
+              // startInstance.globals.firstValueSelected = true;
+              // fillInputs();
+              endInstance.globals.startSelected = true;
+              endInstance.globals.endSelected = false;
+            }
+         });</script>
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+      $(".cpyear").text(moment().year());
+      if ((window.innerWidth <= 800 && window.innerHeight <= 600) || (window.innerWidth <= 600 && window.innerHeight <= 800)) {
+        $("img").addClass("img-responsive");
+      } else {
+        tocbot.init({
+          tocSelector: '#scrollspy',
+          contentSelector: '#contents',
+          headingSelector: 'h2',
+          collapseDepth: 0,
+          fixedSidebarOffset: $(".navbar").outerHeight() + $(".all-container .jumbotron").outerHeight() - 90,
+          positionFixedClass: "affix",
+          positionFixedSelector: "#scrollspy",
+        });
+      }
+
+      $(".doc-feature").wrapInner("<div class='doc-feature-box'></div>");
+
+      $("h2:first").addClass("first-header");
+      $('body').scrollspy({
+        target: '.navbar',
+        offset: 50
+      });
+
+      $(window).on("scroll", function () {
+        if ($(window).scrollTop() < 10) {
+          $(".navbar-default").addClass("isontop");
+          $(".scroll-to-top").addClass("hidden");
+        } else {
+          $(".navbar-default").removeClass("isontop");
+          $(".scroll-to-top").removeClass("hidden");
+        }
+      });
+
+      $(this).trigger("scroll");
+
+
+      var navMain = $(".navbar-collapse"); // avoid dependency on #id
+      // "a:not([data-toggle])" - to avoid issues caused
+      // when you have dropdown inside navbar
+      navMain.on("click", "a:not([data-toggle])", null, function () {
+        navMain.collapse('hide');
+      });
+
+      $("#examples").nextUntil("h2").wrapAll("<div id='examples-container'></div>");
+
+      $("#examples-container").find("h3[id]").each(function () {
+        $("#examples-toc").append("<a href='#" + $(this).attr("id") + "'>" + $(this).text() + "</a>");
+      });
+
+      $(".scroll-to-top").click(function () {
+        $("html, body").animate({
+          scrollTop: 0,
+
+        }, "slow", "swing");
+      });
+
+      $("#examples-toc a[href^='#']").click(function () {
+        var hash = $(this).attr("href");
+        if (window.location.hash != hash) {
+          $("html, body").animate({ scrollTop: $(hash).offset().top + $("#navbar").outerHeight() }, 'fast', 'swing', function () {
+            window.location.hash = hash;
+          });
+        }
+      });
+
+
+    </script>
+
+
+</body>
+
+</html>
